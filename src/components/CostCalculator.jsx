@@ -57,7 +57,7 @@ export default function CostCalculator() {
       particleCount: 80,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#D4AF37', '#FFF3B0', '#0B1728', '#881337']
+      colors: ['#B8860B', '#D97706', '#18181B', '#E5E7EB']
     });
 
     const activeAddonsList = Object.keys(addons)
@@ -83,21 +83,21 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
   };
 
   return (
-    <section id="calculator" className="py-14 sm:py-20 md:py-28 px-3.5 sm:px-6 lg:px-8 bg-royal-dark relative">
+    <section id="calculator" className="py-14 sm:py-20 md:py-24 px-3.5 sm:px-6 lg:px-8 bg-stone-50/50 border-b border-stone-200 font-mono relative">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-royal-gold/10 border border-royal-gold/30 mb-2.5 sm:mb-3">
-            <Calculator className="w-3.5 h-3.5 text-royal-gold" />
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-royal-gold-light">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 mb-2.5 sm:mb-3">
+            <Calculator className="w-3.5 h-3.5 text-amber-700" />
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-amber-800">
               Transparent Pricing
             </span>
           </div>
-          <h2 className="font-cinzel text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
-            Interactive <span className="text-gold-gradient">Event Cost Estimator</span>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-stone-900 tracking-tight mb-3">
+            Interactive <span className="text-amber-700 underline decoration-amber-300 underline-offset-8">Cost Estimator</span>
           </h2>
-          <p className="text-slate-300 text-xs sm:text-sm md:text-base px-2">
+          <p className="text-stone-600 text-xs sm:text-sm md:text-base px-2 leading-relaxed">
             Plan your wedding budget with 100% clarity. Select your guest count, catering tier, and decor style to get an instant realistic estimate.
           </p>
         </div>
@@ -106,11 +106,11 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* Left Column: Form Controls */}
-          <div className="lg:col-span-7 bg-royal-navy/80 backdrop-blur-xl p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl border border-royal-gold/25 shadow-2xl space-y-6 sm:space-y-8">
+          <div className="lg:col-span-7 bg-white p-4 sm:p-6 lg:p-8 rounded-2xl border border-stone-200 shadow-sm space-y-6 sm:space-y-8">
             
             {/* 1. Event Type */}
             <div>
-              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-royal-gold-light mb-2.5">
+              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-stone-500 mb-2.5">
                 1. Select Occasion / Event Type
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-2.5">
@@ -118,10 +118,10 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
                   <button
                     key={type.id}
                     onClick={() => setSelectedEventType(type.id)}
-                    className={`px-3 py-2.5 rounded-xl text-xs font-semibold text-left transition-all border active:scale-95 ${
+                    className={`px-3 py-2.5 rounded-xl text-xs font-medium text-left transition-all border active:scale-95 ${
                       selectedEventType === type.id
-                        ? 'bg-royal-gold text-royal-dark border-royal-gold font-bold shadow-gold'
-                        : 'bg-royal-slate/40 text-slate-300 border-slate-700/60 hover:border-royal-gold/40'
+                        ? 'bg-stone-900 text-white border-stone-900 font-bold shadow-sm'
+                        : 'bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-300 hover:bg-stone-100'
                     }`}
                   >
                     {type.name}
@@ -133,10 +133,10 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
             {/* 2. Guest Count Slider */}
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <label className="text-[11px] sm:text-xs uppercase font-bold tracking-wider text-royal-gold-light">
+                <label className="text-[11px] sm:text-xs uppercase font-bold tracking-wider text-stone-500">
                   2. Number of Guests
                 </label>
-                <span className="font-cinzel text-base sm:text-lg font-bold text-gold-bright">
+                <span className="text-base sm:text-lg font-bold text-amber-700 font-mono">
                   {guestCount} Guests
                 </span>
               </div>
@@ -148,7 +148,7 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
                 step="50"
                 value={guestCount}
                 onChange={(e) => setGuestCount(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-royal-gold py-1"
+                className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-stone-900 py-1"
               />
 
               {/* Quick Guest Chips */}
@@ -157,10 +157,10 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
                   <button
                     key={count}
                     onClick={() => setGuestCount(count)}
-                    className={`px-2 sm:px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-medium transition-all active:scale-95 ${
+                    className={`px-2.5 py-1 rounded text-[11px] font-mono transition-all active:scale-95 ${
                       guestCount === count
-                        ? 'bg-royal-gold/20 text-royal-gold-light border border-royal-gold'
-                        : 'bg-royal-slate/30 text-slate-400 hover:text-slate-200'
+                        ? 'bg-stone-900 text-white font-bold'
+                        : 'bg-stone-100 text-stone-600 hover:text-stone-900 hover:bg-stone-200'
                     }`}
                   >
                     {count}
@@ -171,7 +171,7 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
 
             {/* 3. Food & Catering Package */}
             <div>
-              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-royal-gold-light mb-2.5">
+              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-stone-500 mb-2.5">
                 3. Catering Tier (Per Plate)
               </label>
               <div className="space-y-2.5 sm:space-y-3">
@@ -179,27 +179,27 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
                   <div
                     key={pkg.id}
                     onClick={() => setSelectedFoodPackage(pkg.id)}
-                    className={`p-3 sm:p-3.5 rounded-xl sm:rounded-2xl cursor-pointer border transition-all active:scale-[0.99] ${
+                    className={`p-3.5 sm:p-4 rounded-xl cursor-pointer border transition-all active:scale-[0.99] ${
                       selectedFoodPackage === pkg.id
-                        ? 'bg-royal-card border-royal-gold shadow-gold ring-1 ring-royal-gold'
-                        : 'bg-royal-slate/30 border-slate-700/60 hover:border-royal-gold/30'
+                        ? 'bg-stone-50 border-stone-900 shadow-sm ring-1 ring-stone-900'
+                        : 'bg-white border-stone-200 hover:border-stone-300'
                     }`}
                   >
                     <div className="flex items-start sm:items-center justify-between gap-2 mb-1">
-                      <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${selectedFoodPackage === pkg.id ? 'border-royal-gold bg-royal-gold' : 'border-slate-500'}`}>
-                          {selectedFoodPackage === pkg.id && <Check className="w-2.5 h-2.5 text-royal-dark" />}
+                      <div className="flex items-center gap-2.5">
+                        <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${selectedFoodPackage === pkg.id ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-300'}`}>
+                          {selectedFoodPackage === pkg.id && <Check className="w-2.5 h-2.5" />}
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-slate-100">{pkg.name}</span>
+                        <span className="text-xs sm:text-sm font-bold text-stone-900">{pkg.name}</span>
                       </div>
                       <div className="text-right shrink-0">
-                        <span className="font-cinzel text-xs sm:text-base font-bold text-gold-gradient">
+                        <span className="text-xs sm:text-base font-bold text-amber-700 font-mono">
                           ₹{pkg.pricePerPlate}
                         </span>
-                        <span className="text-[9px] sm:text-[10px] text-slate-400 block">/ plate</span>
+                        <span className="text-[10px] text-stone-500 block">/ plate</span>
                       </div>
                     </div>
-                    <p className="text-[10px] sm:text-[11px] text-slate-400 pl-6 leading-relaxed">{pkg.highlights}</p>
+                    <p className="text-[11px] text-stone-600 pl-6.5 leading-relaxed">{pkg.highlights}</p>
                   </div>
                 ))}
               </div>
@@ -207,7 +207,7 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
 
             {/* 4. Decor Package */}
             <div>
-              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-royal-gold-light mb-2.5">
+              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-stone-500 mb-2.5">
                 4. Decor & Staging Theme
               </label>
               <div className="space-y-2.5 sm:space-y-3">
@@ -215,24 +215,24 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
                   <div
                     key={dec.id}
                     onClick={() => setSelectedDecorPackage(dec.id)}
-                    className={`p-3 sm:p-3.5 rounded-xl sm:rounded-2xl cursor-pointer border transition-all active:scale-[0.99] ${
+                    className={`p-3.5 sm:p-4 rounded-xl cursor-pointer border transition-all active:scale-[0.99] ${
                       selectedDecorPackage === dec.id
-                        ? 'bg-royal-card border-royal-gold shadow-gold ring-1 ring-royal-gold'
-                        : 'bg-royal-slate/30 border-slate-700/60 hover:border-royal-gold/30'
+                        ? 'bg-stone-50 border-stone-900 shadow-sm ring-1 ring-stone-900'
+                        : 'bg-white border-stone-200 hover:border-stone-300'
                     }`}
                   >
                     <div className="flex items-start sm:items-center justify-between gap-2 mb-1">
-                      <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${selectedDecorPackage === dec.id ? 'border-royal-gold bg-royal-gold' : 'border-slate-500'}`}>
-                          {selectedDecorPackage === dec.id && <Check className="w-2.5 h-2.5 text-royal-dark" />}
+                      <div className="flex items-center gap-2.5">
+                        <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${selectedDecorPackage === dec.id ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-300'}`}>
+                          {selectedDecorPackage === dec.id && <Check className="w-2.5 h-2.5" />}
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-slate-100">{dec.name}</span>
+                        <span className="text-xs sm:text-sm font-bold text-stone-900">{dec.name}</span>
                       </div>
-                      <span className="font-cinzel text-xs sm:text-sm font-bold text-royal-gold-light shrink-0">
+                      <span className="text-xs sm:text-sm font-bold text-stone-900 font-mono shrink-0">
                         ₹{dec.cost.toLocaleString('en-IN')}
                       </span>
                     </div>
-                    <p className="text-[10px] sm:text-[11px] text-slate-400 pl-6">{dec.highlights}</p>
+                    <p className="text-[11px] text-stone-600 pl-6.5">{dec.highlights}</p>
                   </div>
                 ))}
               </div>
@@ -240,7 +240,7 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
 
             {/* 5. Additional Resort Services */}
             <div>
-              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-royal-gold-light mb-2.5">
+              <label className="block text-[11px] sm:text-xs uppercase font-bold tracking-wider text-stone-500 mb-2.5">
                 5. Add-on Services
               </label>
               <div className="space-y-2 sm:space-y-2.5">
@@ -252,7 +252,7 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
                       key={key}
                       onClick={() => toggleAddon(key)}
                       className={`p-2.5 sm:p-3 rounded-xl border flex items-start sm:items-center justify-between gap-2 cursor-pointer transition-colors active:scale-[0.99] ${
-                        active ? 'bg-royal-card border-royal-gold/60' : 'bg-royal-slate/20 border-slate-800'
+                        active ? 'bg-amber-50/50 border-stone-900 ring-1 ring-stone-900' : 'bg-stone-50/50 border-stone-200 hover:bg-stone-100/50'
                       }`}
                     >
                       <div className="flex items-center gap-2 sm:gap-2.5">
@@ -260,11 +260,11 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
                           type="checkbox"
                           checked={active}
                           onChange={() => {}}
-                          className="rounded text-royal-gold focus:ring-royal-gold cursor-pointer shrink-0 mt-0.5 sm:mt-0"
+                          className="rounded text-stone-900 focus:ring-stone-900 cursor-pointer shrink-0 mt-0.5 sm:mt-0"
                         />
-                        <span className="text-xs text-slate-200 leading-snug">{item.label}</span>
+                        <span className="text-xs text-stone-800 leading-snug">{item.label}</span>
                       </div>
-                      <span className="text-xs font-semibold text-royal-gold-light shrink-0 ml-1">
+                      <span className="text-xs font-bold text-amber-800 font-mono shrink-0 ml-1">
                         +₹{item.price.toLocaleString('en-IN')}
                       </span>
                     </div>
@@ -277,66 +277,66 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
 
           {/* Right Column: Dynamic Price Summary Card */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <div className="bg-gradient-to-b from-royal-card via-royal-navy to-royal-dark rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-royal-gold/40 shadow-2xl relative overflow-hidden">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 border border-stone-300 shadow-md relative overflow-hidden">
               
               {/* Header Badge */}
-              <div className="flex items-center justify-between pb-3 sm:pb-4 mb-4 sm:mb-6 border-b border-royal-gold/20">
+              <div className="flex items-center justify-between pb-3 sm:pb-4 mb-4 sm:mb-6 border-b border-stone-200">
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-royal-gold" />
-                  <span className="font-cinzel text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-100">
+                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700" />
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-900">
                     Live Quotation
                   </span>
                 </div>
-                <span className="text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
+                <span className="text-[10px] sm:text-[11px] px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200">
                   Instant Preview
                 </span>
               </div>
 
               {/* Event Meta */}
-              <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-xs text-slate-300">
+              <div className="space-y-2 sm:space-y-2.5 mb-4 sm:mb-6 text-xs text-stone-600">
                 <div className="flex justify-between">
                   <span>Occasion:</span>
-                  <span className="font-semibold text-slate-100 truncate ml-2 text-right">{calculation.event.name}</span>
+                  <span className="font-bold text-stone-900 truncate ml-2 text-right">{calculation.event.name}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Guests:</span>
-                  <span className="font-semibold text-slate-100">{guestCount} Persons</span>
+                  <span className="font-bold text-stone-900 font-mono">{guestCount} Persons</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Catering:</span>
-                  <span className="font-semibold text-slate-100 truncate ml-2 text-right">{calculation.food.name}</span>
+                  <span className="font-bold text-stone-900 truncate ml-2 text-right">{calculation.food.name}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Decor:</span>
-                  <span className="font-semibold text-slate-100 truncate ml-2 text-right">{calculation.decor.name}</span>
+                  <span className="font-bold text-stone-900 truncate ml-2 text-right">{calculation.decor.name}</span>
                 </div>
               </div>
 
               {/* Itemized Cost Breakdown */}
-              <div className="space-y-2 py-3 sm:py-4 border-t border-b border-royal-gold/15 text-xs text-slate-300 mb-4 sm:mb-6">
+              <div className="space-y-2 py-3 sm:py-4 border-t border-b border-stone-200 text-xs text-stone-600 mb-4 sm:mb-6">
                 <div className="flex justify-between">
                   <span>Catering ({guestCount} × ₹{calculation.food.pricePerPlate}):</span>
-                  <span className="font-semibold text-slate-200">₹{calculation.foodCost.toLocaleString('en-IN')}</span>
+                  <span className="font-bold text-stone-900 font-mono">₹{calculation.foodCost.toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Decor & Staging:</span>
-                  <span className="font-semibold text-slate-200">₹{calculation.decorCost.toLocaleString('en-IN')}</span>
+                  <span className="font-bold text-stone-900 font-mono">₹{calculation.decorCost.toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Add-on Services:</span>
-                  <span className="font-semibold text-slate-200">₹{calculation.addonTotal.toLocaleString('en-IN')}</span>
+                  <span className="font-bold text-stone-900 font-mono">₹{calculation.addonTotal.toLocaleString('en-IN')}</span>
                 </div>
               </div>
 
               {/* Grand Total Highlight */}
-              <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-royal-dark/80 border border-royal-gold/40 text-center">
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-400 font-semibold block mb-0.5">
+              <div className="mb-4 sm:mb-6 p-4 rounded-xl bg-stone-50 border border-stone-200 text-center">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-stone-500 font-bold block mb-1">
                   Estimated Total Investment
                 </span>
-                <span className="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gold-gradient block">
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-950 font-mono block">
                   ₹{calculation.grandTotal.toLocaleString('en-IN')}*
                 </span>
-                <span className="text-[9px] sm:text-[10px] text-slate-400 mt-1 block">
+                <span className="text-[10px] text-stone-500 mt-1.5 block leading-relaxed">
                   *Excludes taxes. Final custom quotes may adjust based on specific dates and custom menu inclusions.
                 </span>
               </div>
@@ -344,22 +344,22 @@ Hello Shubhaarambh Team, I calculated this preliminary estimate on your website.
               {/* WhatsApp Action Button */}
               <button
                 onClick={handleWhatsAppQuote}
-                className="w-full py-3 sm:py-3.5 px-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-royal-gold via-amber-400 to-royal-gold-dark text-royal-dark font-bold text-xs sm:text-sm uppercase tracking-wider shadow-gold hover:shadow-gold-lg active:scale-95 transition-all flex items-center justify-center gap-2 mb-2.5"
+                className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2 mb-2.5"
               >
-                <MessageSquare className="w-4 h-4 fill-royal-dark shrink-0" />
+                <MessageSquare className="w-4 h-4 fill-white shrink-0" />
                 <span>Lock This Quote on WhatsApp</span>
               </button>
 
               <a
                 href={`tel:${resortInfo.phonePrimary}`}
-                className="w-full py-2.5 px-4 rounded-xl border border-royal-gold/40 hover:bg-royal-gold/10 text-royal-gold-light text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors active:scale-95"
+                className="w-full py-2.5 px-4 rounded-xl border border-stone-300 hover:bg-stone-50 text-stone-800 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors active:scale-95"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Discuss with Manager: {resortInfo.phonePrimary}</span>
               </a>
 
-              <div className="flex items-center gap-1 mt-3 text-[10px] sm:text-[11px] text-slate-400 justify-center">
-                <Info className="w-3 h-3 text-royal-gold shrink-0" />
+              <div className="flex items-center gap-1 mt-3 text-[11px] text-stone-500 justify-center">
+                <Info className="w-3.5 h-3.5 text-amber-700 shrink-0" />
                 <span>Zero advance fee to hold dates for 48 hours</span>
               </div>
 

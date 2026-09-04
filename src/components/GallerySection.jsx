@@ -29,37 +29,37 @@ export default function GallerySection() {
   };
 
   return (
-    <section id="gallery" className="py-14 sm:py-20 md:py-28 px-3.5 sm:px-6 lg:px-8 bg-gradient-to-b from-royal-dark via-royal-navy to-royal-dark relative">
+    <section id="gallery" className="py-14 sm:py-20 md:py-24 px-3.5 sm:px-6 lg:px-8 bg-[#FAF8F5] border-b border-stone-200 font-mono relative">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-royal-gold/10 border border-royal-gold/30 mb-2.5 sm:mb-3">
-            <ImageIcon className="w-3.5 h-3.5 text-royal-gold" />
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-royal-gold-light">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 mb-2.5 sm:mb-3">
+            <ImageIcon className="w-3.5 h-3.5 text-amber-700" />
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-amber-800">
               Visual Elegance
             </span>
           </div>
-          <h2 className="font-cinzel text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
-            A Glimpse into <span className="text-gold-gradient">Royal Grandeur</span>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-stone-900 tracking-tight mb-3">
+            A Glimpse into <span className="text-amber-700 underline decoration-amber-300 underline-offset-8">Royal Celebrations</span>
           </h2>
-          <p className="text-slate-300 text-xs sm:text-sm md:text-base px-2">
+          <p className="text-stone-600 text-xs sm:text-sm md:text-base px-2 leading-relaxed">
             Witness how Shubhaarambh transforms your auspicious day into a cinematic royal fairy tale with breathtaking mandap decorations, illuminated pool evenings, and festive feasts.
           </p>
         </div>
 
         {/* Filter Categories (Horizontally scrollable on mobile) */}
-        <div className="flex sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 overflow-x-auto no-scrollbar py-2 px-1 -mx-2 sm:mx-0">
+        <div className="flex sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-12 overflow-x-auto no-scrollbar py-2 px-1 -mx-2 sm:mx-0">
           {galleryCategories.map((cat) => {
             const isActive = cat.id === activeCategory;
             return (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wider whitespace-nowrap shrink-0 transition-all duration-300 active:scale-95 ${
+                className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold tracking-wider whitespace-nowrap shrink-0 transition-all duration-200 active:scale-95 ${
                   isActive
-                    ? 'bg-gradient-to-r from-royal-gold to-amber-500 text-royal-dark shadow-gold font-bold scale-105'
-                    : 'bg-royal-slate/40 hover:bg-royal-slate text-slate-300 border border-royal-gold/15'
+                    ? 'bg-stone-900 text-white font-bold shadow-sm'
+                    : 'bg-white text-stone-700 border border-stone-200 hover:border-stone-400 hover:bg-stone-50'
                 }`}
               >
                 {cat.label}
@@ -74,31 +74,31 @@ export default function GallerySection() {
             <div
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer border border-royal-gold/20 hover:border-royal-gold/60 shadow-xl transition-all duration-500 bg-royal-card/60 active:scale-[0.98]"
+              className="group relative rounded-2xl overflow-hidden cursor-pointer border border-stone-200 hover:border-stone-400 shadow-sm transition-all duration-300 bg-white active:scale-[0.99]"
             >
               <div className="aspect-[4/3] w-full overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   loading="lazy"
                 />
               </div>
 
-              {/* Permanent Bottom Gradient for Touch & Mobile Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-royal-dark/95 via-royal-dark/30 to-transparent flex flex-col justify-end p-4 sm:p-6 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-royal-gold-light font-bold mb-0.5">
+              {/* Bottom Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent flex flex-col justify-end p-4 sm:p-6 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-amber-400 font-bold mb-0.5">
                   {item.category}
                 </span>
-                <h4 className="font-cinzel text-base sm:text-lg font-bold text-white mb-1">
+                <h4 className="text-base sm:text-lg font-bold text-white mb-1">
                   {item.title}
                 </h4>
-                <p className="text-[11px] sm:text-xs text-slate-300 line-clamp-2 mb-2 sm:mb-3">
+                <p className="text-[11px] sm:text-xs text-stone-300 line-clamp-2 mb-2 sm:mb-3">
                   {item.desc}
                 </p>
-                <div className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-royal-gold">
+                <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-amber-300">
                   <Maximize2 className="w-3.5 h-3.5" />
-                  <span>Tap to view full photo</span>
+                  <span>View Full Photo</span>
                 </div>
               </div>
             </div>
@@ -110,13 +110,13 @@ export default function GallerySection() {
       {/* Lightbox Modal */}
       {lightboxIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-royal-dark/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
           onClick={closeLightbox}
         >
           {/* Close Button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2.5 rounded-full bg-royal-slate/90 text-white hover:text-royal-gold border border-royal-gold/30 z-50 transition-colors"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2.5 rounded-full bg-white/90 text-stone-900 hover:bg-white z-50 transition-colors shadow-lg"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
@@ -124,7 +124,7 @@ export default function GallerySection() {
           {/* Previous Button */}
           <button
             onClick={prevImage}
-            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-royal-slate/90 text-white hover:text-royal-gold border border-royal-gold/30 z-50 transition-colors active:scale-95"
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-white/90 text-stone-900 hover:bg-white z-50 transition-colors active:scale-95 shadow-lg"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
@@ -132,7 +132,7 @@ export default function GallerySection() {
           {/* Next Button */}
           <button
             onClick={nextImage}
-            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-royal-slate/90 text-white hover:text-royal-gold border border-royal-gold/30 z-50 transition-colors active:scale-95"
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-white/90 text-stone-900 hover:bg-white z-50 transition-colors active:scale-95 shadow-lg"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
@@ -145,16 +145,16 @@ export default function GallerySection() {
             <img
               src={filteredItems[lightboxIndex].image}
               alt={filteredItems[lightboxIndex].title}
-              className="max-h-[60vh] sm:max-h-[70vh] w-auto max-w-full rounded-xl sm:rounded-2xl object-contain shadow-2xl border border-royal-gold/30"
+              className="max-h-[60vh] sm:max-h-[70vh] w-auto max-w-full rounded-xl object-contain shadow-2xl border border-white/20"
             />
             <div className="mt-3 sm:mt-4 text-center">
-              <h3 className="font-cinzel text-base sm:text-xl font-bold text-royal-gold-light">
+              <h3 className="text-base sm:text-xl font-bold text-white">
                 {filteredItems[lightboxIndex].title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-lg mt-0.5 sm:mt-1 line-clamp-2">
+              <p className="text-xs sm:text-sm text-stone-300 max-w-lg mt-0.5 sm:mt-1 line-clamp-2">
                 {filteredItems[lightboxIndex].desc}
               </p>
-              <span className="text-[10px] sm:text-[11px] text-slate-500 mt-1 block">
+              <span className="text-[11px] text-stone-400 mt-1 block font-mono">
                 {lightboxIndex + 1} / {filteredItems.length}
               </span>
             </div>

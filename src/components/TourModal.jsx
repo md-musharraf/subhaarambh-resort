@@ -37,13 +37,13 @@ export default function TourModal({ isOpen, onClose }) {
   const currentScene = tourScenes[selectedTourIndex];
 
   return (
-    <div className="fixed inset-0 z-50 bg-royal-dark/95 backdrop-blur-lg flex items-center justify-center p-3 sm:p-4 animate-fadeIn">
-      <div className="relative w-full max-w-4xl bg-royal-card border border-royal-gold/40 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 font-mono animate-fadeIn">
+      <div className="relative w-full max-w-4xl bg-white border border-stone-300 rounded-2xl overflow-hidden shadow-2xl max-h-[92vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-royal-dark/80 text-slate-300 hover:text-white border border-royal-gold/30 transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-white/90 text-stone-900 hover:bg-white shadow transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
@@ -55,37 +55,37 @@ export default function TourModal({ isOpen, onClose }) {
             alt={currentScene.title}
             className="w-full h-full object-cover animate-pulse-subtle"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-royal-dark via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-stone-950/40" />
 
           {/* Top Info */}
           <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 flex items-center gap-1.5 sm:gap-2">
-            <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-royal-crimson text-royal-gold-100 text-[10px] sm:text-xs font-bold border border-royal-gold/30">
+            <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded bg-amber-400 text-stone-950 text-[10px] sm:text-xs font-bold">
               {currentScene.tag}
             </span>
-            <div className="flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-royal-dark/80 backdrop-blur-md text-[10px] sm:text-xs text-slate-300 border border-slate-700">
-              <MapPin className="w-3 h-3 text-royal-gold" />
+            <div className="flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded bg-white/90 text-[10px] sm:text-xs text-stone-900 font-medium">
+              <MapPin className="w-3 h-3 text-amber-700" />
               <span>Kajraili</span>
             </div>
           </div>
 
           {/* Bottom Title on Video */}
           <div className="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-6 sm:right-6 z-10">
-            <h3 className="font-cinzel text-lg sm:text-2xl lg:text-3xl font-bold text-white mb-0.5 sm:mb-1">
+            <h3 className="text-lg sm:text-2xl font-bold text-white mb-0.5 sm:mb-1">
               {currentScene.title}
             </h3>
-            <p className="text-[11px] sm:text-sm text-slate-300 max-w-2xl line-clamp-2">
+            <p className="text-[11px] sm:text-sm text-stone-200 max-w-2xl line-clamp-2">
               {currentScene.description}
             </p>
           </div>
         </div>
 
         {/* Scene Navigation Strip */}
-        <div className="p-3.5 sm:p-6 bg-royal-navy border-t border-royal-gold/20">
+        <div className="p-4 sm:p-6 bg-stone-50 border-t border-stone-200">
           <div className="flex items-center justify-between mb-2 sm:mb-3">
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-royal-gold-light">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-stone-500">
               Select Virtual Tour Zone:
             </span>
-            <span className="text-[10px] sm:text-xs text-slate-400">
+            <span className="text-[10px] sm:text-xs text-stone-500">
               Scene {selectedTourIndex + 1} of {tourScenes.length}
             </span>
           </div>
@@ -95,25 +95,25 @@ export default function TourModal({ isOpen, onClose }) {
               <button
                 key={idx}
                 onClick={() => setSelectedTourIndex(idx)}
-                className={`p-2 rounded-xl text-left transition-all border active:scale-95 ${
+                className={`p-2.5 rounded-xl text-left transition-all border active:scale-95 ${
                   idx === selectedTourIndex
-                    ? 'bg-royal-gold/20 border-royal-gold text-royal-gold-light'
-                    : 'bg-royal-dark/60 border-slate-700/60 text-slate-400 hover:text-slate-200'
+                    ? 'bg-white border-stone-900 shadow-sm text-stone-900 ring-1 ring-stone-900 font-bold'
+                    : 'bg-white/80 border-stone-200 text-stone-600 hover:border-stone-400'
                 }`}
               >
-                <span className="text-[9px] uppercase block tracking-wider font-semibold">0{idx + 1}.</span>
+                <span className="text-[9px] uppercase block tracking-wider font-semibold text-stone-400">0{idx + 1}.</span>
                 <span className="text-[11px] sm:text-xs font-bold block truncate">{scene.title}</span>
               </button>
             ))}
           </div>
 
-          <div className="mt-3.5 sm:mt-4 pt-2.5 sm:pt-3 border-t border-royal-gold/10 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 text-center sm:text-left">
-            <span className="text-[10px] sm:text-xs text-slate-400">
+          <div className="mt-4 pt-3 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 text-center sm:text-left">
+            <span className="text-[11px] text-stone-500">
               * Physical site visits available 7 days a week: 9 AM - 9 PM
             </span>
             <a
               href={`tel:${resortInfo.phonePrimary}`}
-              className="w-full sm:w-auto px-4 py-2 rounded-full bg-royal-gold hover:bg-amber-400 text-royal-dark font-bold text-xs uppercase tracking-wider transition-all text-center"
+              className="w-full sm:w-auto px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider transition-all text-center"
             >
               Call Manager: {resortInfo.phonePrimary}
             </a>

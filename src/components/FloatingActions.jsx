@@ -75,23 +75,23 @@ export default function FloatingActions() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2 sm:gap-3 pointer-events-none">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5 sm:gap-3 pointer-events-none font-mono">
       
       {/* Ambient Audio Toggle */}
       <button
         onClick={toggleAmbientMusic}
         title={audioPlaying ? 'Mute Royal Ambient Music' : 'Play Royal Ambient Tanpura'}
-        className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-royal-navy/90 border border-royal-gold/40 text-royal-gold hover:text-royal-gold-light hover:bg-royal-slate backdrop-blur-md shadow-lg transition-all duration-300 group flex items-center gap-1.5 active:scale-95"
+        className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-white/95 border border-stone-300 text-stone-700 hover:text-stone-950 hover:bg-stone-50 backdrop-blur-md shadow-md transition-all duration-200 group flex items-center gap-1.5 active:scale-95"
       >
         {audioPlaying ? (
           <>
-            <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse text-amber-400" />
-            <span className="text-[10px] sm:text-[11px] font-semibold pr-1 hidden group-hover:inline text-royal-gold-light">Mute</span>
+            <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 animate-pulse" />
+            <span className="text-[10px] sm:text-[11px] font-bold pr-1 hidden group-hover:inline text-amber-800">Mute</span>
           </>
         ) : (
           <>
-            <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
-            <span className="text-[10px] sm:text-[11px] font-semibold pr-1 hidden group-hover:inline text-slate-300">Play Royal Music</span>
+            <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-stone-400" />
+            <span className="text-[10px] sm:text-[11px] font-bold pr-1 hidden group-hover:inline text-stone-600">Play Music</span>
           </>
         )}
       </button>
@@ -100,7 +100,7 @@ export default function FloatingActions() {
       <a
         href={`tel:${resortInfo.phonePrimary}`}
         title="Call Resort Manager"
-        className="pointer-events-auto p-2.5 sm:p-3.5 rounded-full bg-royal-navy/95 border border-royal-gold/40 text-royal-gold-light hover:bg-royal-gold hover:text-royal-dark backdrop-blur-md shadow-gold transition-all duration-300 active:scale-90 hover:scale-110 flex items-center justify-center"
+        className="pointer-events-auto p-2.5 sm:p-3.5 rounded-full bg-white/95 border border-stone-300 text-stone-900 hover:bg-stone-900 hover:text-white backdrop-blur-md shadow-md transition-all duration-200 active:scale-90 hover:scale-105 flex items-center justify-center"
       >
         <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
       </a>
@@ -111,12 +111,12 @@ export default function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         title="Chat on WhatsApp"
-        className="pointer-events-auto relative p-3 sm:p-4 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white shadow-2xl transition-all duration-300 active:scale-90 hover:scale-110 flex items-center justify-center group"
+        className="pointer-events-auto relative p-3 sm:p-4 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg transition-all duration-200 active:scale-90 hover:scale-105 flex items-center justify-center group"
       >
         <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 fill-white" />
         <span className="absolute -top-1 -right-1 flex h-3 w-3 sm:h-3.5 sm:w-3.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-royal-gold"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-emerald-500"></span>
         </span>
       </a>
 
@@ -125,7 +125,7 @@ export default function FloatingActions() {
         <button
           onClick={scrollToTop}
           title="Back to Top"
-          className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-royal-slate/90 border border-royal-gold/30 text-royal-gold-light hover:bg-royal-gold hover:text-royal-dark backdrop-blur-md shadow-lg transition-all duration-300 active:scale-90"
+          className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-white/95 border border-stone-300 text-stone-800 hover:bg-stone-100 backdrop-blur-md shadow-md transition-all duration-200 active:scale-90"
         >
           <ArrowUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>

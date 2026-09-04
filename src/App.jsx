@@ -28,19 +28,19 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-royal-dark text-slate-100 selection:bg-royal-gold/30 selection:text-royal-gold-light antialiased font-sans overflow-x-hidden">
-      {/* Sticky Luxury Navbar */}
+    <div className="min-h-screen bg-classic-bg text-classic-text font-mono selection:bg-amber-100 selection:text-amber-900 antialiased overflow-x-hidden">
+      {/* Sticky Clean Light Luxury Navbar */}
       <Navbar onOpenBookingModal={() => setBookingModalOpen(true)} />
 
       {/* Main Page Flow */}
       <main>
-        {/* Cinematic Royal Hero */}
+        {/* Cinematic Clean Hero */}
         <Hero
           onOpenBookingModal={() => setBookingModalOpen(true)}
           onOpenTourModal={() => setTourModalOpen(true)}
         />
 
-        {/* About & Story */}
+        {/* About & Heritage */}
         <AboutSection onOpenBookingModal={() => setBookingModalOpen(true)} />
 
         {/* Venues Showcase */}
