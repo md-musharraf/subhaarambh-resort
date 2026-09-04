@@ -18,7 +18,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
   };
 
   return (
-    <section className={`relative min-h-[86vh] flex items-center justify-center pt-20 sm:pt-28 pb-8 sm:pb-14 px-3.5 sm:px-6 lg:px-8 overflow-hidden transition-colors ${
+    <section className={`relative min-h-[84vh] flex items-center justify-center pt-16 sm:pt-24 pb-6 sm:pb-12 px-3 sm:px-6 lg:px-8 overflow-hidden transition-colors ${
       isDark ? 'bg-[#060D17] text-white' : 'bg-[#FAF8F5] text-stone-900 font-mono'
     }`}>
       {/* Background Image with Theme-Aware Overlay */}
@@ -48,13 +48,13 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
       <div className="relative z-10 w-full max-w-5xl mx-auto text-center flex flex-col items-center">
         
         {/* Luxury Badge */}
-        <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full mb-2 sm:mb-2.5 max-w-full border ${
+        <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full mb-1.5 sm:mb-2.5 max-w-full border ${
           isDark 
             ? 'bg-royal-card/80 border-amber-500/30 text-amber-300 shadow-gold' 
             : 'bg-white border-[#E8E2D5] text-stone-700 shadow-clean'
         }`}>
           <Sparkles className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isDark ? 'text-amber-400' : 'text-amber-700'} shrink-0`} />
-          <span className="text-[10px] sm:text-xs font-semibold tracking-wider uppercase truncate">
+          <span className="text-[9.5px] sm:text-xs font-semibold tracking-wider uppercase truncate">
             Bhagalpur's Premier Wedding Resort
           </span>
           <span className={`w-1 h-1 rounded-full hidden sm:inline ${isDark ? 'bg-amber-400' : 'bg-amber-700'}`} />
@@ -62,14 +62,14 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
         </div>
 
         {/* Romantic Script Accent */}
-        <p className={`font-script text-xl sm:text-3xl md:text-4xl mb-0.5 sm:mb-1 ${
+        <p className={`font-script text-lg sm:text-2xl md:text-3xl mb-0.5 sm:mb-1 ${
           isDark ? 'text-amber-300' : 'text-amber-800'
         }`}>
           The Beginning of Forever
         </p>
 
         {/* Main Heading */}
-        <h1 className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.15] mb-2.5 sm:mb-4 px-2 ${
+        <h1 className={`text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-snug sm:leading-tight mb-2 sm:mb-3.5 px-2 ${
           isDark ? 'font-cinzel text-white' : 'font-mono text-stone-900'
         }`}>
           Where Grand Celebrations <br className="hidden sm:inline" />
@@ -83,30 +83,30 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
         </h1>
 
         {/* Descriptive Subtitle */}
-        <p className={`max-w-2xl text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 px-3 ${
+        <p className={`max-w-2xl text-[11px] sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-5 px-3 ${
           isDark ? 'text-slate-300' : 'text-stone-600 font-mono'
         }`}>
           Located in Kajraili, Bhagalpur, <strong className={isDark ? 'text-amber-200' : 'text-stone-900'}>Shubhaarambh Resort & Banquet</strong> offers a grand AC ballroom, poolside wedding lawn, bridal suites, and mastercrafted royal catering.
         </p>
 
         {/* Action Buttons */}
-        <div className="w-full max-w-md sm:max-w-none flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-5 sm:mb-8 px-2">
+        <div className="w-full max-w-md sm:max-w-none flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 px-2">
           <a
             href="#venues"
-            className={`w-full sm:w-auto px-6 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 ${
+            className={`w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 ${
               isDark 
                 ? 'bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-stone-950 shadow-gold hover:shadow-gold-lg' 
                 : 'bg-stone-900 hover:bg-amber-800 text-white shadow-clean'
             }`}
           >
             <span>Explore Venues</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
 
           <div className="w-full sm:w-auto grid grid-cols-2 sm:flex sm:flex-row gap-2 sm:gap-3">
             <button
               onClick={onOpenTourModal}
-              className={`w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-2 active:scale-95 ${
+              className={`w-full sm:w-auto px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 active:scale-95 ${
                 isDark 
                   ? 'border-amber-500/40 bg-royal-card/80 text-amber-200 hover:border-amber-400' 
                   : 'border-stone-300 bg-white hover:bg-stone-50 text-stone-800 shadow-clean'
@@ -122,7 +122,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
 
             <a
               href="#calculator"
-              className={`w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center text-center active:scale-95 ${
+              className={`w-full sm:w-auto px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all flex items-center justify-center text-center active:scale-95 ${
                 isDark 
                   ? 'border-amber-500/25 bg-royal-slate/40 text-slate-200 hover:bg-royal-slate' 
                   : 'border-[#E8E2D5] bg-[#F3EFE6] hover:bg-[#EBE4D5] text-amber-900'
@@ -134,19 +134,19 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
         </div>
 
         {/* Quick Date & Availability Checker Card */}
-        <div className={`w-full max-w-4xl p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border shadow-lg ${
+        <div className={`w-full max-w-4xl p-3 sm:p-4 rounded-2xl sm:rounded-3xl border shadow-lg ${
           isDark 
             ? 'bg-royal-card/95 border-amber-500/30 text-white shadow-2xl' 
             : 'bg-white border-[#E8E2D5] text-stone-900 shadow-clean-md'
         }`}>
-          <div className={`flex items-center justify-between pb-2 mb-2.5 sm:mb-3 border-b ${
+          <div className={`flex items-center justify-between pb-1.5 mb-2 border-b ${
             isDark ? 'border-amber-500/20' : 'border-stone-200'
           }`}>
-            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
+            <div className="flex items-center gap-1.5 text-[10.5px] sm:text-xs font-semibold uppercase tracking-wide">
               <Calendar className={`w-3.5 h-3.5 ${isDark ? 'text-amber-400' : 'text-amber-700'} shrink-0`} />
               <span className="truncate">Check Date Availability</span>
             </div>
-            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] shrink-0 font-mono">
+            <div className="flex items-center gap-1 text-[9.5px] sm:text-[11px] shrink-0 font-mono">
               <CheckCircle2 className="w-3 h-3 text-emerald-500" />
               <span className={isDark ? 'text-emerald-400' : 'text-stone-500'}>Instant Response</span>
             </div>
@@ -155,7 +155,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
           <form onSubmit={handleQuickCheck} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 text-left">
             {/* Event Type */}
             <div>
-              <label className={`block text-[10px] uppercase tracking-wider font-semibold mb-1 ${
+              <label className={`block text-[9.5px] uppercase tracking-wider font-semibold mb-1 ${
                 isDark ? 'text-slate-400' : 'text-stone-500'
               }`}>
                 Occasion
@@ -163,7 +163,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
               <select
                 value={quickType}
                 onChange={(e) => setQuickType(e.target.value)}
-                className={`w-full border rounded-xl px-3 py-2 text-xs focus:outline-none transition-colors ${
+                className={`w-full border rounded-xl px-2.5 py-1.5 sm:py-2 text-xs focus:outline-none transition-colors ${
                   isDark 
                     ? 'bg-royal-dark/90 border-slate-700 text-slate-200 focus:border-amber-400' 
                     : 'bg-[#FAF8F5] border-stone-200 text-stone-800 focus:border-amber-700'
@@ -179,7 +179,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
 
             {/* Event Date */}
             <div>
-              <label className={`block text-[10px] uppercase tracking-wider font-semibold mb-1 ${
+              <label className={`block text-[9.5px] uppercase tracking-wider font-semibold mb-1 ${
                 isDark ? 'text-slate-400' : 'text-stone-500'
               }`}>
                 Preferred Date
@@ -188,7 +188,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
                 type="date"
                 value={quickDate}
                 onChange={(e) => setQuickDate(e.target.value)}
-                className={`w-full border rounded-xl px-3 py-1.5 text-xs focus:outline-none transition-colors ${
+                className={`w-full border rounded-xl px-2.5 py-1.5 text-xs focus:outline-none transition-colors ${
                   isDark 
                     ? 'bg-royal-dark/90 border-slate-700 text-slate-200 focus:border-amber-400 [color-scheme:dark]' 
                     : 'bg-[#FAF8F5] border-stone-200 text-stone-800 focus:border-amber-700 [color-scheme:light]'
@@ -198,7 +198,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
 
             {/* Expected Guests */}
             <div>
-              <label className={`block text-[10px] uppercase tracking-wider font-semibold mb-1 ${
+              <label className={`block text-[9.5px] uppercase tracking-wider font-semibold mb-1 ${
                 isDark ? 'text-slate-400' : 'text-stone-500'
               }`}>
                 Guests Count
@@ -206,7 +206,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
               <select
                 value={quickGuests}
                 onChange={(e) => setQuickGuests(e.target.value)}
-                className={`w-full border rounded-xl px-3 py-2 text-xs focus:outline-none transition-colors ${
+                className={`w-full border rounded-xl px-2.5 py-1.5 sm:py-2 text-xs focus:outline-none transition-colors ${
                   isDark 
                     ? 'bg-royal-dark/90 border-slate-700 text-slate-200 focus:border-amber-400' 
                     : 'bg-[#FAF8F5] border-stone-200 text-stone-800 focus:border-amber-700'
@@ -223,7 +223,7 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
             <div className="flex items-end">
               <button
                 type="submit"
-                className={`w-full py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 active:scale-95 ${
+                className={`w-full py-2 sm:py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 active:scale-95 ${
                   isDark 
                     ? 'bg-gradient-to-r from-amber-400 to-amber-600 text-stone-950 shadow-gold' 
                     : 'bg-amber-700 hover:bg-amber-800 text-white shadow-clean'
@@ -237,30 +237,30 @@ export default function Hero({ onOpenBookingModal, onOpenTourModal }) {
         </div>
 
         {/* Quick Trust Highlights Banner */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3.5 mt-4 sm:mt-7 w-full text-center">
-          <div className={`py-2 px-2.5 sm:py-2.5 sm:px-3 rounded-xl border ${
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3.5 mt-3 sm:mt-6 w-full text-center">
+          <div className={`py-1.5 px-2 sm:py-2.5 sm:px-3 rounded-xl border ${
             isDark ? 'bg-royal-card/80 border-amber-500/20 shadow-md' : 'bg-white border-[#E8E2D5] shadow-clean'
           }`}>
-            <span className={`block text-base sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>50,000+</span>
-            <span className={`text-[9px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>Sq. Ft. Lawn</span>
+            <span className={`block text-sm sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>50,000+</span>
+            <span className={`text-[8.5px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>Sq. Ft. Lawn</span>
           </div>
-          <div className={`py-2 px-2.5 sm:py-2.5 sm:px-3 rounded-xl border ${
+          <div className={`py-1.5 px-2 sm:py-2.5 sm:px-3 rounded-xl border ${
             isDark ? 'bg-royal-card/80 border-amber-500/20 shadow-md' : 'bg-white border-[#E8E2D5] shadow-clean'
           }`}>
-            <span className={`block text-base sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>2,000+</span>
-            <span className={`text-[9px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>Capacity</span>
+            <span className={`block text-sm sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>2,000+</span>
+            <span className={`text-[8.5px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>Capacity</span>
           </div>
-          <div className={`py-2 px-2.5 sm:py-2.5 sm:px-3 rounded-xl border ${
+          <div className={`py-1.5 px-2 sm:py-2.5 sm:px-3 rounded-xl border ${
             isDark ? 'bg-royal-card/80 border-amber-500/20 shadow-md' : 'bg-white border-[#E8E2D5] shadow-clean'
           }`}>
-            <span className={`block text-base sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>100%</span>
-            <span className={`text-[9px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>Power Backup</span>
+            <span className={`block text-sm sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>100%</span>
+            <span className={`text-[8.5px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>Power Backup</span>
           </div>
-          <div className={`py-2 px-2.5 sm:py-2.5 sm:px-3 rounded-xl border ${
+          <div className={`py-1.5 px-2 sm:py-2.5 sm:px-3 rounded-xl border ${
             isDark ? 'bg-royal-card/80 border-amber-500/20 shadow-md' : 'bg-white border-[#E8E2D5] shadow-clean'
           }`}>
-            <span className={`block text-base sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>4.9 ★</span>
-            <span className={`text-[9px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>650+ Events</span>
+            <span className={`block text-sm sm:text-xl font-bold ${isDark ? 'text-gold-gradient' : 'text-amber-800 font-mono'}`}>4.9 ★</span>
+            <span className={`text-[8.5px] sm:text-[10px] uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-stone-500 font-mono'}`}>650+ Events</span>
           </div>
         </div>
 

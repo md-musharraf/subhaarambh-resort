@@ -30,7 +30,7 @@ function MainApp() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 antialiased overflow-x-hidden pb-14 sm:pb-0 ${
+    <div className={`min-h-screen transition-colors duration-300 antialiased overflow-x-hidden pb-20 sm:pb-0 ${
       isDark 
         ? 'bg-[#060D17] text-slate-100 selection:bg-amber-400 selection:text-stone-950' 
         : 'bg-[#FAF8F5] text-[#18181B] font-mono selection:bg-amber-100 selection:text-amber-900'
