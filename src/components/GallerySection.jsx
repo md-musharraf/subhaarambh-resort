@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Sparkles, Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import { galleryCategories, galleryItems } from '../data/resortData';
+import { useTheme } from '../context/ThemeContext';
 
 export default function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const { isDark } = useTheme();
 
   const filteredItems = activeCategory === 'all'
     ? galleryItems
@@ -29,37 +31,52 @@ export default function GallerySection() {
   };
 
   return (
-    <section id="gallery" className="py-14 sm:py-20 md:py-24 px-3.5 sm:px-6 lg:px-8 bg-[#FAF8F5] border-b border-stone-200 font-mono relative">
+    <section id="gallery" className={`py-12 sm:py-20 md:py-24 px-3.5 sm:px-6 lg:px-8 border-b transition-colors relative ${
+      isDark ? 'bg-[#0B1728] border-[#D4AF37]/25 text-white' : 'bg-[#FAF8F5] border-stone-200 text-stone-900 font-mono'
+    }`}>
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 mb-2.5 sm:mb-3">
-            <ImageIcon className="w-3.5 h-3.5 text-amber-700" />
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-amber-800">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-12">
+          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-2 sm:mb-2.5 border ${
+            isDark ? 'bg-amber-500/10 border-amber-500/30 text-amber-300' : 'bg-amber-50 border-amber-300 text-amber-800'
+          }`}>
+            <ImageIcon className="w-3.5 h-3.5 text-amber-500" />
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider">
               Visual Elegance
             </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-stone-900 tracking-tight mb-3">
-            A Glimpse into <span className="text-amber-700 underline decoration-amber-300 underline-offset-8">Royal Celebrations</span>
+          <h2 className={`text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2.5 sm:mb-3 ${
+            isDark ? 'font-cinzel text-white' : 'font-mono text-stone-900'
+          }`}>
+            A Glimpse into{' '}
+            <span className={isDark ? 'text-gold-gradient' : 'text-amber-700 underline decoration-amber-300 underline-offset-8'}>
+              Royal Celebrations
+            </span>
           </h2>
-          <p className="text-stone-600 text-xs sm:text-sm md:text-base px-2 leading-relaxed">
+          <p className={`text-xs sm:text-sm md:text-base px-2 leading-relaxed ${
+            isDark ? 'text-slate-300' : 'text-stone-600 font-mono'
+          }`}>
             Witness how Shubhaarambh transforms your auspicious day into a cinematic royal fairy tale with breathtaking mandap decorations, illuminated pool evenings, and festive feasts.
           </p>
         </div>
 
         {/* Filter Categories (Horizontally scrollable on mobile) */}
-        <div className="flex sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-12 overflow-x-auto no-scrollbar py-2 px-1 -mx-2 sm:mx-0">
+        <div className="flex sm:flex-wrap items-center sm:justify-center gap-2 sm:gap-2.5 mb-6 sm:mb-12 overflow-x-auto no-scrollbar py-2 px-1 -mx-2 sm:mx-0">
           {galleryCategories.map((cat) => {
             const isActive = cat.id === activeCategory;
             return (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold tracking-wider whitespace-nowrap shrink-0 transition-all duration-200 active:scale-95 ${
+                className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold tracking-wider whitespace-nowrap shrink-0 transition-all duration-200 active:scale-95 border ${
                   isActive
-                    ? 'bg-stone-900 text-white font-bold shadow-sm'
-                    : 'bg-white text-stone-700 border border-stone-200 hover:border-stone-400 hover:bg-stone-50'
+                    ? isDark 
+                      ? 'bg-gradient-to-r from-amber-400 to-amber-600 text-stone-950 font-bold border-amber-400 shadow-gold' 
+                      : 'bg-stone-900 text-white font-bold border-stone-900 shadow-sm'
+                    : isDark 
+                      ? 'bg-royal-card text-slate-300 border-amber-500/20 hover:border-amber-400/50' 
+                      : 'bg-white text-stone-700 border-stone-200 hover:border-stone-400 hover:bg-stone-50'
                 }`}
               >
                 {cat.label}
@@ -74,7 +91,11 @@ export default function GallerySection() {
             <div
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer border border-stone-200 hover:border-stone-400 shadow-sm transition-all duration-300 bg-white active:scale-[0.99]"
+              className={`group relative rounded-2xl overflow-hidden cursor-pointer border shadow-sm transition-all duration-300 active:scale-[0.99] ${
+                isDark 
+                  ? 'bg-royal-card border-amber-500/20 hover:border-amber-400 shadow-lg' 
+                  : 'bg-white border-stone-200 hover:border-stone-400'
+              }`}
             >
               <div className="aspect-[4/3] w-full overflow-hidden">
                 <img
@@ -86,11 +107,11 @@ export default function GallerySection() {
               </div>
 
               {/* Bottom Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/20 to-transparent flex flex-col justify-end p-4 sm:p-6 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-950/30 to-transparent flex flex-col justify-end p-4 sm:p-6 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-amber-400 font-bold mb-0.5">
                   {item.category}
                 </span>
-                <h4 className="text-base sm:text-lg font-bold text-white mb-1">
+                <h4 className={`text-base sm:text-lg font-bold text-white mb-1 ${isDark ? 'font-cinzel' : ''}`}>
                   {item.title}
                 </h4>
                 <p className="text-[11px] sm:text-xs text-stone-300 line-clamp-2 mb-2 sm:mb-3">
@@ -110,7 +131,7 @@ export default function GallerySection() {
       {/* Lightbox Modal */}
       {lightboxIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-stone-950/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
           onClick={closeLightbox}
         >
           {/* Close Button */}
@@ -148,7 +169,7 @@ export default function GallerySection() {
               className="max-h-[60vh] sm:max-h-[70vh] w-auto max-w-full rounded-xl object-contain shadow-2xl border border-white/20"
             />
             <div className="mt-3 sm:mt-4 text-center">
-              <h3 className="text-base sm:text-xl font-bold text-white">
+              <h3 className={`text-base sm:text-xl font-bold text-white ${isDark ? 'font-cinzel' : ''}`}>
                 {filteredItems[lightboxIndex].title}
               </h3>
               <p className="text-xs sm:text-sm text-stone-300 max-w-lg mt-0.5 sm:mt-1 line-clamp-2">

@@ -11,27 +11,43 @@
   body {
     overflow-x: hidden;
     width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark Royal Mode Body */
+  html.dark body {
+    background-color: #060D17;
+    color: #F1F5F9;
+  }
+
+  /* Light Classic Mode Body */
+  html.light body {
     background-color: #FAF8F5;
     color: #18181B;
     font-family: 'JetBrains Mono', monospace;
   }
 
-  /* Custom Light Luxury Scrollbar */
+  /* Custom Scrollbar - Dynamic */
   ::-webkit-scrollbar {
     width: 7px;
   }
 
-  ::-webkit-scrollbar-track {
-    background: #F3EFE6;
+  html.dark ::-webkit-scrollbar-track {
+    background: #060D17;
   }
 
-  ::-webkit-scrollbar-thumb {
+  html.dark ::-webkit-scrollbar-thumb {
     background: #D4AF37;
     border-radius: 4px;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
+  html.light ::-webkit-scrollbar-track {
+    background: #F3EFE6;
+  }
+
+  html.light ::-webkit-scrollbar-thumb {
     background: #B8860B;
+    border-radius: 4px;
   }
 
   /* Prevent iOS automatic input zoom */
@@ -48,22 +64,27 @@
 
 @layer utilities {
   .text-gold-gradient {
-    background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #926F1B 100%);
+    background: linear-gradient(135deg, #F5DE88 0%, #D4AF37 50%, #AA820A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .text-gold-bright {
-    background: linear-gradient(135deg, #854D0E 0%, #B8860B 50%, #D4AF37 100%);
+    background: linear-gradient(135deg, #FFF3B0 0%, #F5DE88 50%, #D4AF37 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .bg-glass-light {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .bg-glass-dark {
+    background: rgba(6, 13, 23, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   .clean-card {
@@ -72,14 +93,10 @@
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
   }
 
-  .clean-card-hover {
-    transition: all 0.25s ease-in-out;
-  }
-
-  .clean-card-hover:hover {
-    border-color: #B8860B;
-    box-shadow: 0 12px 24px -4px rgba(184, 134, 11, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
-    transform: translateY(-2px);
+  .royal-card-dark {
+    background: rgba(16, 31, 53, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
   }
 
   /* Hide scrollbar for touch carousels/tabs */
@@ -90,5 +107,10 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Safe Area Padding for mobile bottom dock */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 12px);
   }
 }

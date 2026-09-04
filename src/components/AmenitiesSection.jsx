@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sparkles, Waves, Car, Zap, Volume2, ShieldCheck, UtensilsCrossed, Bus } from 'lucide-react';
 import { amenitiesList } from '../data/resortData';
+import { useTheme } from '../context/ThemeContext';
 
 // Map icon string names to Lucide icons
 const iconMap = {
@@ -15,22 +16,35 @@ const iconMap = {
 };
 
 export default function AmenitiesSection() {
+  const { isDark } = useTheme();
+
   return (
-    <section id="amenities" className="py-14 sm:py-20 md:py-24 px-3.5 sm:px-6 lg:px-8 bg-stone-50/50 border-b border-stone-200 font-mono relative">
+    <section id="amenities" className={`py-12 sm:py-20 md:py-24 px-3.5 sm:px-6 lg:px-8 border-b transition-colors relative ${
+      isDark ? 'bg-[#060D17] border-[#D4AF37]/25 text-white' : 'bg-stone-50/50 border-stone-200 text-stone-900 font-mono'
+    }`}>
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 mb-2.5 sm:mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-amber-800">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
+          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-2 sm:mb-2.5 border ${
+            isDark ? 'bg-amber-500/10 border-amber-500/30 text-amber-300' : 'bg-amber-50 border-amber-300 text-amber-800'
+          }`}>
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider">
               World-Class Facilities
             </span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-stone-900 tracking-tight mb-3">
-            Resort Amenities Designed for <span className="text-amber-700 underline decoration-amber-300 underline-offset-8">Flawless Events</span>
+          <h2 className={`text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2.5 sm:mb-3 ${
+            isDark ? 'font-cinzel text-white' : 'font-mono text-stone-900'
+          }`}>
+            Resort Amenities Designed for{' '}
+            <span className={isDark ? 'text-gold-gradient' : 'text-amber-700 underline decoration-amber-300 underline-offset-8'}>
+              Flawless Events
+            </span>
           </h2>
-          <p className="text-stone-600 text-xs sm:text-sm md:text-base px-2 leading-relaxed">
+          <p className={`text-xs sm:text-sm md:text-base px-2 leading-relaxed ${
+            isDark ? 'text-slate-300' : 'text-stone-600 font-mono'
+          }`}>
             Every detail is meticulously engineered to ensure that you and your guests enjoy an uninterrupted, luxurious celebration in Kajraili, Bhagalpur.
           </p>
         </div>
@@ -42,15 +56,27 @@ export default function AmenitiesSection() {
             return (
               <div
                 key={idx}
-                className="group p-5 sm:p-6 rounded-2xl bg-white border border-stone-200 hover:border-stone-400 transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                className={`group p-5 sm:p-6 rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 ${
+                  isDark 
+                    ? 'bg-royal-card/80 border-amber-500/20 hover:border-amber-400 shadow-md' 
+                    : 'bg-white border-stone-200 hover:border-stone-400 shadow-sm'
+                }`}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-amber-100 transition-colors">
-                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-amber-800" />
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl border flex items-center justify-center mb-3 sm:mb-4 transition-colors ${
+                  isDark 
+                    ? 'bg-amber-500/15 border-amber-500/30 text-amber-400 group-hover:bg-amber-500 group-hover:text-stone-950' 
+                    : 'bg-amber-50 border-amber-200 text-amber-800 group-hover:bg-amber-100'
+                }`}>
+                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-stone-900 mb-1.5">
+                <h3 className={`text-sm sm:text-base font-bold mb-1.5 ${
+                  isDark ? 'font-cinzel text-slate-100' : 'font-mono text-stone-900'
+                }`}>
                   {item.title}
                 </h3>
-                <p className="text-xs text-stone-600 leading-relaxed">
+                <p className={`text-xs leading-relaxed ${
+                  isDark ? 'text-slate-400' : 'text-stone-600'
+                }`}>
                   {item.desc}
                 </p>
               </div>
@@ -59,18 +85,26 @@ export default function AmenitiesSection() {
         </div>
 
         {/* Additional Reassurance Highlight Banner */}
-        <div className="mt-8 sm:mt-14 p-6 sm:p-8 rounded-2xl bg-white border border-stone-300 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+        <div className={`mt-8 sm:mt-14 p-6 sm:p-8 rounded-2xl border shadow-md flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 ${
+          isDark 
+            ? 'bg-gradient-to-r from-royal-navy via-royal-card to-royal-navy border-amber-500/30 text-white' 
+            : 'bg-white border-stone-300 shadow-sm text-stone-900'
+        }`}>
           <div className="space-y-1 text-center md:text-left">
-            <h4 className="text-base sm:text-xl font-bold text-stone-900">
+            <h4 className={`text-base sm:text-xl font-bold ${isDark ? 'font-cinzel text-amber-300' : 'text-stone-900'}`}>
               Need Special Accommodations or Custom Themes?
             </h4>
-            <p className="text-xs sm:text-sm text-stone-600">
+            <p className={`text-xs sm:text-sm ${isDark ? 'text-slate-300' : 'text-stone-600'}`}>
               Our venue management team is available 7 days a week to accommodate customized decor, drone shoot permissions, and guest transport logistics.
             </p>
           </div>
           <a
             href="tel:+919110974441"
-            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider active:scale-95 transition-all shrink-0 text-center"
+            className={`w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider active:scale-95 transition-all shrink-0 text-center ${
+              isDark 
+                ? 'bg-gradient-to-r from-amber-400 to-amber-600 text-stone-950 shadow-gold' 
+                : 'bg-stone-900 hover:bg-stone-800 text-white'
+            }`}
           >
             Inquire Facilities: 91109 74441
           </a>

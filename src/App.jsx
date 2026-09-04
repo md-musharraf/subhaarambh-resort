@@ -13,11 +13,13 @@ import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import BookingModal from './components/BookingModal';
 import TourModal from './components/TourModal';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 
-export default function App() {
+function MainApp() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [tourModalOpen, setTourModalOpen] = useState(false);
   const [selectedVenueForContact, setSelectedVenueForContact] = useState('');
+  const { isDark } = useTheme();
 
   const handleSelectVenueForBooking = (venueTitle) => {
     setSelectedVenueForContact(venueTitle);
@@ -28,13 +30,17 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-classic-bg text-classic-text font-mono selection:bg-amber-100 selection:text-amber-900 antialiased overflow-x-hidden">
-      {/* Sticky Clean Light Luxury Navbar */}
+    <div className={`min-h-screen transition-colors duration-300 antialiased overflow-x-hidden pb-14 sm:pb-0 ${
+      isDark 
+        ? 'bg-[#060D17] text-slate-100 selection:bg-amber-400 selection:text-stone-950' 
+        : 'bg-[#FAF8F5] text-[#18181B] font-mono selection:bg-amber-100 selection:text-amber-900'
+    }`}>
+      {/* Sticky Dual-Themed Navbar */}
       <Navbar onOpenBookingModal={() => setBookingModalOpen(true)} />
 
       {/* Main Page Flow */}
       <main>
-        {/* Cinematic Clean Hero */}
+        {/* Cinematic Hero */}
         <Hero
           onOpenBookingModal={() => setBookingModalOpen(true)}
           onOpenTourModal={() => setTourModalOpen(true)}
@@ -68,8 +74,8 @@ export default function App() {
       {/* Royal Footer */}
       <Footer />
 
-      {/* Floating Action Controls */}
-      <FloatingActions />
+      {/* Floating Action Controls (Mobile Bottom Dock + Desktop Floating Stack) */}
+      <FloatingActions onOpenBookingModal={() => setBookingModalOpen(true)} />
 
       {/* Booking / Appointment Modal */}
       <BookingModal
@@ -84,5 +90,13 @@ export default function App() {
         onClose={() => setTourModalOpen(false)}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <MainApp />
+    </ThemeProvider>
   );
 }
